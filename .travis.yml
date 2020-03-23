@@ -1,1 +1,12 @@
 language: php
+rvm:
+ - 2.2
+ - jruby
+install:
+  — pip install -r requirements_dev.txt
+  — pip install -e .
+
+script:
+  — pytest --cov=my_package_name
+after_success:
+  — coveralls
